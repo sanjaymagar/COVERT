@@ -39,21 +39,24 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'rest_auth.registration',
+    # 'rest_framework.authtoken',
+    # 'rest_auth',
+    # 'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    # 'rest_auth.registration',
+    'knox',
 
-    
     'api',
     'frontend',
 
 ]
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-SITE_ID = 1
+# SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
@@ -65,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'COVERT.urls'
 
@@ -127,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'api.CustomUser'
+# AUTH_USER_MODEL = 'api.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -149,7 +153,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
@@ -158,10 +161,3 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ORIGIN_REGEX_WHITELIST = (
     'localhost:8000',
 )
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-}
