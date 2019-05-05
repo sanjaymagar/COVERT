@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/sanya/.local/share/virtualenvs/COVERT-S_JXQR1O/bin/python"
+    "python.pythonPath": "/home/sanya/.local/share/virtualenvs/COVERT-S_JXQR1O/bin/python",
+    "git.ignoreLimitWarning": true
 }

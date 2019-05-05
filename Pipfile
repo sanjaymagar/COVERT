@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 channels = "*"
 django = "*"
+django-rest-auth = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.6"
